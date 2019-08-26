@@ -2,9 +2,9 @@
   "name": "example-graphql",
   "version": "1.0.0",
   "description": "",
-  "main": "app/index.ts",
+  "main": "server/index.ts",
   "scripts": {
-    "dev": "ts-node app/index.ts",
+    "dev": "ts-node server/index.ts",
     "json-server": "json-server --watch db.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

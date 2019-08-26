@@ -1,41 +1,37 @@
 import React from "react";
 
-import ApolloClient, { gql } from "apollo-boost";
+import { useQuery } from "@apollo/react-hooks";
 
-import logo from "./logo.svg";
+import UsersQuery from "./graphql/query/UsersQuery";
+
 import "./App.css";
 
-const client = new ApolloClient({
-  uri: "http://localhost:7000/graphql"
-});
-
-client
-  .query({
-    query: gql`
-      {
-        users
-      }
-    `
-  })
-  .then(result => console.log(result));
+const tables = ["id", "email", "name", "birth"];
 
 const App: React.FC = () => {
+  const { loading, error, data } = useQuery(UsersQuery.USERS);
+
+  console.error("@@@", { loading, error, data });
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <table>
+        <thead>
+          {tables.map(key => (
+            <th key={key}>{key}</th>
+          ))}
+        </thead>
+        {!loading && (
+          <tbody>
+            {data.users.map((user: any) => (
+              <tr key={user.id}>
+                {tables.map(key => (
+                  <td key={user[key]}>{user[key]}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        )}
+      </table>
     </div>
   );
 };

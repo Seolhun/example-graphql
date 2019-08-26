@@ -1,9 +1,13 @@
 import express from "express";
+import cors from "cors";
 import graphqlHTTP from "express-graphql";
 
 import { schema, getSchemaString } from "./routes/graphql/schema";
 
 const app = express();
+
+// Cors
+app.use(cors());
 
 // GraphQL
 app.use(

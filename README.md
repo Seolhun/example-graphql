@@ -3,7 +3,7 @@
 - Author : [Seolhun](https://github.com/Seolhun)
 - Date : 2017.04.04
 
-## Script
+## How to run
 
 ### Server Dev
 
@@ -19,4 +19,19 @@ cd server && yarn dev
 cd client && yarn dev
 
 ## Running localhost:3000
+```
+
+### Graphiql
+
+> [Access Graphiql](http://localhost:7000/graphql)
+
+```gql
+query {
+  users {
+    id
+    email
+    name
+    birth
+  }
+}
 ```

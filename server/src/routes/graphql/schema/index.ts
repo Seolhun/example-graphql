@@ -1,6 +1,6 @@
-import { GraphQLSchema, printSchema } from 'graphql';
-import { mutation } from '../mutation';
-import { query } from '../query';
+import { GraphQLSchema, printSchema } from "graphql";
+import { mutation } from "../mutation";
+import { query } from "../query";
 
 function getSchemaString() {
   console.log(printSchema(schema));
@@ -8,7 +8,7 @@ function getSchemaString() {
 
 const schema = new GraphQLSchema({
   query,
-  mutation,
+  mutation
 });
 
 export { schema, getSchemaString };

@@ -5,10 +5,6 @@ import { schema, getSchemaString } from "./routes/graphql/schema";
 
 const app = express();
 
-app.use("/", (req, res) => {
-  res.send("pong");
-});
-
 // GraphQL
 app.use(
   "/graphql",

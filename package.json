@@ -4,7 +4,8 @@
   "description": "",
   "main": "server/index.ts",
   "scripts": {
-    "server": "ts-node server/index.ts",
+		"server:dev": "ts-node server/index.ts",
+		"client:dev": "cd client && yarn start",
     "js": "json-server --watch db.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
